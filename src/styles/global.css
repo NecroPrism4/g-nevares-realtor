@@ -1,0 +1,52 @@
+@import url("animate.css");
+@import "tailwindcss";
+
+/* 0. color variables & fonts */
+/* 1. html elements */
+/* 2. utilities */
+
+/* 0. color variables & fonts */
+:root {
+  --space-red: #90393a;
+  --space-yellow: #ffff85;
+  --space-sand: #e2d1c3;
+  --space-stone: #434343;
+}
+
+@font-face {
+  font-family: 'Lato';
+  src: url('/fonts/Lato-Regular.ttf') format('ttf');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@theme {
+  /* Custom colors */
+  --color-smoking-50: oklch(0.951 0.006 255.49);
+  --color-smoking-100: oklch(0.899 0.013 262.4);
+  --color-smoking-200: oklch(0.797 0.029 265.42);
+  --color-smoking-300: oklch(0.693 0.043 262.22);
+  --color-smoking-400: oklch(0.575 0.064 262.96);
+  --color-smoking-500: oklch(0.474 0.054 263.29);
+  --color-smoking-600: oklch(0.371 0.039 263.08); /* Base color #354055 */
+  --color-smoking-700: oklch(0.305 0.031 263.95);
+  --color-smoking-800: oklch(0.247 0.023 262.41);
+  --color-smoking-900: oklch(0.177 0.011 260.64);
+  --color-smoking-950: oklch(0.128 0.006 262.01);
+}
+
+/* Base elements with Tailwind utilities */
+html, body {
+  @apply text-slate-900;
+}
+
+a:not(.button-link) {
+  @apply transition-colors;
+}
+
+h1 { @apply text-5xl sm:text-7xl font-semibold; }
+h2 { @apply text-3xl sm:text-4xl font-semibold text-smoking-600; }
+h3 { @apply text-2xl font-semibold; }
+p  { @apply text-slate-700; }
+

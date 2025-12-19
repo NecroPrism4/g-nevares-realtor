@@ -1,0 +1,21 @@
+---
+import AboutIntro from "../components/AboutIntro.astro";
+import ContactCta from "../components/ContactCta.astro";
+import FeaturedListings from "../components/FeaturedListings.astro";
+import Hero from "../components/Hero.astro";
+import Services from "../components/Services.astro";
+import MainLayout from "../layouts/MainLayout.astro";
+import siteConfig from "../site.config";
+---
+
+<MainLayout
+  activePage="home"
+  pageTitle={siteConfig.title + " | Rocky Point, MX Realtor"}
+  showSubscribeForm={false}
+>
+  <Hero />
+  <AboutIntro />
+  <Services />
+  <FeaturedListings />
+  <ContactCta />
+</MainLayout>

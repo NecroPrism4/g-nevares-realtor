@@ -1,0 +1,44 @@
+---
+import { Image } from "astro:assets";
+import realtorImage from "../assets/images/g-nevarez-realtor.png";
+import siteConfig from "../site.config";
+import Button from "./Button.astro";
+---
+
+<section class="flex flex-col sm:flex-row sm:items-center sm:justify-between w-full px-4 my-6 gap-6">
+  <div class="w-full sm:w-fit sm:max-w-1/2 order-1 sm:order-1">
+    {
+      siteConfig.hero?.eyebrowText && (
+        <span class="inline-block rounded-full border border-smoking-600 px-2 py-0 text-xs text-smoking-600">
+          {siteConfig.hero?.eyebrowText}
+        </span>
+      )
+    }
+    <h1 class="leading-tight text-balance sm:pt-0">
+      {siteConfig.hero?.title}
+    </h1>
+    <p class="text-balance text-sm sm:text-base">
+      {siteConfig.hero?.text}
+    </p>
+    <div class="flex flex-wrap items-center text-xs sm:text-base gap-x-2 gap-y-8 mt-3 sm:mt-12">
+      {
+        siteConfig.hero?.actions?.map((action) => (
+          <Button href={action.href} class="bg-smoking-600 text-white! hover:bg-smoking-700 ">
+            {action.text}
+          </Button>
+        ))
+      }
+    </div>
+  </div>
+  <div class="w-full sm:w-fit sm:max-w-1/2 order-2 sm:order-2">
+    <Image
+      class="rounded-xl object-cover"
+      src={realtorImage}
+      alt={"Gilberto Nevarez - Realtor"}
+      width={520}
+      height={680}
+    />
+  </div>
+</section>
+
+

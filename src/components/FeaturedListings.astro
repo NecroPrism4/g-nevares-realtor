@@ -1,0 +1,35 @@
+---
+import { Image } from "astro:assets";
+import listing1 from "../assets/images/1.png";
+import listing2 from "../assets/images/2.jpg";
+import listing3 from "../assets/images/3.jpg";
+---
+
+<section id="listings" class="w-full px-4 my-16">
+  <h2 class="mb-8">Featured listings</h2>
+  <div class="grid grid-cols-1 sm:grid-cols-3 gap-6">
+    <div class="rounded-2xl overflow-hidden border border-smoking-200">
+      <Image src={listing1} alt="Featured listing 1" width={640} height={420} class="w-full h-48 object-cover" />
+      <div class="p-4">
+        <h3 class="mb-1">Coastal condo</h3>
+        <p class="text-sm">2 bed · 2 bath · Ocean view</p>
+      </div>
+    </div>
+    <div class="rounded-2xl overflow-hidden border border-smoking-200">
+      <Image src={listing2} alt="Featured listing 2" width={640} height={420} class="w-full h-48 object-cover" />
+      <div class="p-4">
+        <h3 class="mb-1">Modern townhouse</h3>
+        <p class="text-sm">3 bed · 3 bath · Gated community</p>
+      </div>
+    </div>
+    <div class="rounded-2xl overflow-hidden border border-smoking-200">
+      <Image src={listing3} alt="Featured listing 3" width={640} height={420} class="w-full h-48 object-cover" />
+      <div class="p-4">
+        <h3 class="mb-1">Family home</h3>
+        <p class="text-sm">4 bed · 3 bath · Large backyard</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+

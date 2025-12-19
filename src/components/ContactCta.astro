@@ -1,0 +1,17 @@
+---
+import siteConfig from "../site.config";
+import Button from "./Button.astro";
+---
+
+<section id="contact" class="w-full px-4 my-16">
+  <h2 class="mb-4">Contact Me</h2>
+  <p class="mb-6">Have questions or ready to get started? I’d love to help.</p>
+  <div class="flex gap-3">
+    <Button href="/contact" class="bg-smoking-600 text-white hover:bg-smoking-700">Let’s Talk</Button>
+    {siteConfig?.contactInfo?.email?.href && (
+      <Button href={siteConfig.contactInfo.email.href}>Email Me</Button>
+    )}
+  </div>
+</section>
+
+

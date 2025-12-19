@@ -1,0 +1,30 @@
+---
+const {
+  activePage,
+  links,
+  isMobileLink = false,
+} = Astro.props as {
+  activePage: string;
+  links: { text: string; href: string }[];
+  isMobileLink?: boolean;
+};
+---
+
+{
+  links?.map((link) => {
+    const isActive = activePage === link.text.toLowerCase();
+    const classNames = [
+      isMobileLink ? "close-menu" : "",
+      isActive
+        ? "text-smoking-600 font-medium"
+        : "text-slate-700 hover:text-smoking-600 transition-colors",
+    ]
+      .join(" ")
+      .trim();
+    return (
+      <a class={classNames} href={link.href}>
+        {link.text}
+      </a>
+    );
+  })
+}
