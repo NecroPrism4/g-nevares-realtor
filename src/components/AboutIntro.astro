@@ -1,13 +1,50 @@
 ---
+import { Image } from "astro:assets";
 import siteConfig from "../site.config";
+import agentPhoto from "../assets/images/g-nevarez-realtor.png";
 ---
 
-<section id="about" class="w-full px-4 my-16">
-  <h2 class="mb-4">Hi, I’m Gilberto</h2>
-  <p>
-    {siteConfig.about?.text ||
-      "I help clients buy, sell, and lease in Rocky Point and nearby areas. Expect clear communication, proven strategy, and a calm, guided experience from first consult to closing."}
-  </p>
-  </section>
+<section id="about" class="mx-auto my-20 w-[min(1200px,100%-2rem)]">
+  <div class="grid items-center gap-10 lg:grid-cols-[1.05fr_0.95fr]">
+    <div class="space-y-4">
+      <p class="text-[0.65rem] uppercase tracking-[0.35em] text-neutral-500">
+        Sobre Gilberto
+      </p>
+      <h2 class="text-2xl font-semibold uppercase tracking-[0.08em] text-neutral-900 sm:text-3xl">
+        Experiencia binacional con enfoque humano
+      </h2>
+      <p class="max-w-2xl text-sm text-neutral-600 sm:text-base">
+        {siteConfig.about?.text ||
+          "Soy Gilberto Nevárez, agente inmobiliario con más de 20 años de experiencia ayudando a compradores y vendedores en Puerto Peñasco. Brindo asesoría bilingüe y acompañamiento total en cada etapa del proceso."}
+      </p>
+      <div class="grid gap-4 pt-2 sm:grid-cols-3">
+        <div class="rounded-lg border border-neutral-200 bg-white px-4 py-3 shadow-sm">
+          <p class="text-xs uppercase tracking-[0.3em] text-neutral-500">Experiencia</p>
+          <p class="mt-2 text-lg font-semibold text-neutral-900">20+ años</p>
+        </div>
+        <div class="rounded-lg border border-neutral-200 bg-white px-4 py-3 shadow-sm">
+          <p class="text-xs uppercase tracking-[0.3em] text-neutral-500">Bilingüe</p>
+          <p class="mt-2 text-lg font-semibold text-neutral-900">ES / EN</p>
+        </div>
+        <div class="rounded-lg border border-neutral-200 bg-white px-4 py-3 shadow-sm">
+          <p class="text-xs uppercase tracking-[0.3em] text-neutral-500">Mercado</p>
+          <p class="mt-2 text-lg font-semibold text-neutral-900">Puerto Peñasco</p>
+        </div>
+      </div>
+    </div>
+    <div class="relative">
+      <div class="absolute -inset-4 rounded-2xl bg-white/70 blur-2xl"></div>
+      <div class="relative overflow-hidden rounded-2xl border border-white/40 bg-white/60 p-4 shadow-2xl backdrop-blur">
+        <Image
+          src={agentPhoto}
+          alt="Gilberto Nevárez"
+          width={520}
+          height={680}
+          class="h-[460px] w-full object-cover"
+        />
+      </div>
+    </div>
+  </div>
+</section>
 
 

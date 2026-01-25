@@ -14,10 +14,9 @@ const {
   links?.map((link) => {
     const isActive = activePage === link.text.toLowerCase();
     const classNames = [
+      "uppercase tracking-[0.25em] text-[0.7rem] transition-colors",
       isMobileLink ? "close-menu" : "",
-      isActive
-        ? "text-smoking-600 font-medium"
-        : "text-slate-700 hover:text-smoking-600 transition-colors",
+      isActive ? "text-white" : "text-white/70 hover:text-white",
     ]
       .join(" ")
       .trim();

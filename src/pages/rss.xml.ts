@@ -1,14 +1,14 @@
 import rss from "@astrojs/rss";
-import { withBase } from "../utils/helpers";
 import { getCollection } from "astro:content";
 import siteConfig from "../site.config";
+import { withBase } from "../utils/helpers";
 
 export async function GET(context) {
   const blog = await getCollection("blogs");
   return rss({
     title: siteConfig.title,
     description: siteConfig.description,
-    site: context.site + withBase("/"),
+    site: context.site + withBase(""),
     trailingSlash: false,
     items: blog.map((post) => ({
       title: post.data.title,
@@ -19,6 +19,6 @@ export async function GET(context) {
       link: withBase(`/blog/${post.id}/`),
     })),
     customData: `<language>en-US</language>`,
-    stylesheet: withBase("/pretty-feed-v3.xsl"),
+    stylesheet: withBase("pretty-feed-v3.xsl"),
   });
 }

@@ -1,35 +1,44 @@
 ---
-import { Image } from "astro:assets";
-import listing1 from "../assets/images/1.png";
-import listing2 from "../assets/images/2.jpg";
-import listing3 from "../assets/images/3.jpg";
+import { getCollection } from "astro:content";
+import ListingCard from "./ListingCard.astro";
+const featured = (await getCollection("listings"))
+  .filter((e) => e.data.featured)
+  .slice(0, 3)
+  .map((e) => {
+    const idSlug = e.id.split("/").pop()?.replace(/\\.md$/, "") ?? "";
+    return {
+      slug: e.data.slug ?? idSlug,
+      title: e.data.title,
+      price: e.data.price,
+      currency: e.data.currency ?? "USD",
+      location: e.data.location,
+      bedrooms: e.data.bedrooms ?? 0,
+      bathrooms: e.data.bathrooms ?? 0,
+      areaSqFt: e.data.areaSqFt,
+      imageUrl: e.data.images?.[0] ?? null,
+    };
+  });
 ---
 
-<section id="listings" class="w-full px-4 my-16">
-  <h2 class="mb-8">Featured listings</h2>
-  <div class="grid grid-cols-1 sm:grid-cols-3 gap-6">
-    <div class="rounded-2xl overflow-hidden border border-smoking-200">
-      <Image src={listing1} alt="Featured listing 1" width={640} height={420} class="w-full h-48 object-cover" />
-      <div class="p-4">
-        <h3 class="mb-1">Coastal condo</h3>
-        <p class="text-sm">2 bed · 2 bath · Ocean view</p>
-      </div>
+<section id="listings" class="mx-auto my-20 w-[min(1200px,100%-2rem)]">
+  <div class="flex flex-wrap items-end justify-between gap-6">
+    <div class="space-y-4">
+      <p class="text-[0.65rem] uppercase tracking-[0.35em] text-neutral-500">Propiedades destacadas</p>
+      <h2 class="text-2xl font-semibold uppercase tracking-[0.08em] text-neutral-900 sm:text-3xl">
+        Propiedades destacadas en Puerto Peñasco
+      </h2>
+      <p class="max-w-2xl text-sm text-neutral-600 sm:text-base">
+        Descubre algunas de las mejores oportunidades disponibles ahora.
+      </p>
     </div>
-    <div class="rounded-2xl overflow-hidden border border-smoking-200">
-      <Image src={listing2} alt="Featured listing 2" width={640} height={420} class="w-full h-48 object-cover" />
-      <div class="p-4">
-        <h3 class="mb-1">Modern townhouse</h3>
-        <p class="text-sm">3 bed · 3 bath · Gated community</p>
-      </div>
-    </div>
-    <div class="rounded-2xl overflow-hidden border border-smoking-200">
-      <Image src={listing3} alt="Featured listing 3" width={640} height={420} class="w-full h-48 object-cover" />
-      <div class="p-4">
-        <h3 class="mb-1">Family home</h3>
-        <p class="text-sm">4 bed · 3 bath · Large backyard</p>
-      </div>
-    </div>
+    <a href="#contact" class="text-[0.7rem] uppercase tracking-[0.3em] text-neutral-900">
+      Solicitar info
+    </a>
+  </div>
+  <div class="mt-10 grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
+    {featured.map((item) => (
+      <ListingCard {...item} />
+    ))}
   </div>
 </section>
-
 

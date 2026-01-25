@@ -5,19 +5,17 @@ import { defineConfig } from "astro/config";
 
 import tailwindcss from "@tailwindcss/vite";
 
+import db from "@astrojs/db";
+
 // https://astro.build/config
 export default defineConfig({
-  site: "https://djsiddz.github.io",
+  site: "https://gilbertonevarez.com",
   base: "/",
-  integrations: [
-    swup({
-      theme: ["overlay", { direction: "to-top" }],
-      cache: true,
-      progress: true,
-    }),
-    preact(),
-    sitemap(),
-  ],
+  integrations: [swup({
+    theme: ["overlay", { direction: "to-top" , color: "#151a22" }],
+    cache: true,
+    progress: true,
+  }), preact(), sitemap(), db()],
 
   image: {
     responsiveStyles: true,

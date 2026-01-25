@@ -1,14 +1,14 @@
 ---
-import {
-  getAllTags,
-  getPostsByTag,
-  sortItemsByDateDesc,
-  withBase,
-} from "../../utils/helpers";
 import { getCollection } from "astro:content";
 import Button from "../../components/Button.astro";
 import MainLayout from "../../layouts/MainLayout.astro";
 import siteConfig from "../../site.config";
+import {
+getAllTags,
+getPostsByTag,
+sortItemsByDateDesc,
+withBase,
+} from "../../utils/helpers";
 
 const posts = (await getCollection("blogs")).sort(sortItemsByDateDesc);
 const tags = getAllTags(posts).sort((tagA, tagB) => {
@@ -30,7 +30,7 @@ const tags = getAllTags(posts).sort((tagA, tagB) => {
         tags.map((tag) => {
           const postCount = getPostsByTag(posts, tag.id).length;
           return (
-            <Button href={`${withBase("/tags/" + tag.id)}`} class="px-4! m-2">
+            <Button href={`${withBase("tags/" + tag.id)}`} class="px-4! m-2">
               {tag.name} ({postCount})
             </Button>
           );

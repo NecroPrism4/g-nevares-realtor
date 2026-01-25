@@ -68,103 +68,103 @@ export type SiteConfig = {
 };
 
 const siteConfig: SiteConfig = {
-  website: "https://g-nevarez-realtor.example.com",
-  title: "G. Nevarez Realtor",
+  website: "https://gooceano.com",
+  title: "Gilberto Nevárez",
   description:
-    "Helping busy professionals find homes they love through a stress-free, guided process.",
+    "Agente inmobiliario bilingüe especializado en venta, compra, rentas y gestión de propiedades en Puerto Peñasco, Sonora.",
   image: {
     src: "/space-ahead-preview.jpeg",
     alt: "G. Nevarez Realtor",
   },
   headerNavLinks: [
     {
-      text: "About",
-      href: withBase("/about"),
+      text: "Inicio",
+      href: withBase(""),
     },
     {
-      text: "Listings",
-      href: withBase("/"),
+      text: "Servicios",
+      href: "#services",
     },
     {
-      text: "Buy",
-      href: withBase("/#buy"),
+      text: "Propiedades",
+      href: "#listings",
     },
     {
-      text: "Sell",
-      href: withBase("/#sell"),
+      text: "Proceso",
+      href: "#process",
     },
     {
-      text: "Lease",
-      href: withBase("/#lease"),
+      text: "Zona",
+      href: "#area",
     },
     {
-      text: "Contact",
-      href: withBase("/contact"),
+      text: "Contacto",
+      href: "#contact",
     },
   ],
   footerNavLinks: [
     {
-      text: "About",
-      href: withBase("/about"),
+      text: "Servicios",
+      href: "#services",
     },
     {
-      text: "Contact",
-      href: withBase("/contact"),
+      text: "Propiedades",
+      href: "#listings",
+    },
+    {
+      text: "Contacto",
+      href: "#contact",
     },
   ],
   socialLinks: [
-    {
-      text: "TikTok",
-      href: "https://www.tiktok.com/",
-    },
     {
       text: "Instagram",
       href: "https://www.instagram.com/",
     },
     {
-      text: "LinkedIn",
-      href: "https://www.linkedin.com/",
+      text: "Facebook",
+      href: "https://www.facebook.com/",
     },
   ],
   hero: {
-    eyebrowText: "Rocky Point, MX Realtor",
-    title: "Finding a home you love",
-    text: "I'm Gilberto Nevarez — helping busy professionals effortlessly find homes they adore through a transparent, guided process backed by experience and integrity.",
+    eyebrowText: "Puerto Peñasco, Sonora",
+    title: "Encuentra tu propiedad ideal en Puerto Peñasco",
+    text: "Agente inmobiliario bilingüe — Venta, compra, rentas y asesoría personalizada.",
     image: {
       src: "/assets/images/g-nevarez-realtor.png",
-      alt: "Gilberto Nevarez - Realtor",
+      alt: "Gilberto Nevárez - Agente inmobiliario",
     },
     actions: [
       {
-        text: "Let's Talk",
-        href: withBase("/contact"),
+        text: "Explorar propiedades",
+        href: "#listings",
+      },
+      {
+        text: "Contáctame por WhatsApp",
+        href: "https://wa.me/526562234824",
       },
     ],
   },
   about: {
-    title: "About",
-    text: "I help clients buy, sell, and lease in the GTA. Expect clear communication, proven strategy, and a calm, guided experience from first consult to closing.",
+    title: "Sobre mí",
+    text: "Soy Gilberto Nevárez, agente inmobiliario con más de 20 años de experiencia ayudando a compradores y vendedores a concretar transacciones exitosas en Puerto Peñasco, Sonora 🇲🇽. Como profesional bilingüe (inglés / español), brindo atención clara y personalizada, acompañándote en cada etapa: desde la búsqueda, negociación, financiamiento y cierre, hasta la administración de tu propiedad si lo necesitas.",
   },
   contactInfo: {
-    title: "Contact",
-    text: "Have questions or ready to get started? Reach out anytime — I’d love to help.",
+    title: "Contacto",
+    text: "¿Tienes preguntas o quieres comenzar? Escríbeme y te respondo rápido.",
     email: {
-      text: "Email me and I’ll get back to you quickly.",
-      href: "mailto:hello@example.com",
-      email: "hello@example.com",
+      text: "Gilberto@goOceano.com",
+      href: "mailto:Gilberto@goOceano.com",
+      email: "Gilberto@goOceano.com",
     },
     socialProfiles: [
       {
-        text: "LinkedIn",
-        href: "https://www.linkedin.com/",
+        text: "Instagram",
+        href: "https://www.instagram.com/",
       },
       {
-        text: "Peerlist",
-        href: "https://www.peerlist.io/",
-      },
-      {
-        text: "GitHub",
-        href: "https://github.com/",
+        text: "Facebook",
+        href: "https://www.facebook.com/",
       },
     ],
   },

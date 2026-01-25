@@ -1,10 +1,10 @@
 ---
 import { Image } from "astro:assets";
-import MainLayout from "../layouts/MainLayout.astro";
-import { withBase } from "../utils/helpers";
-import heroImage from "../assets/images/pixeltrue-space-discovery.svg";
+import heroImage from "../assets/images/hero-background.jpg";
 import SpaceKeyboard from "../components/SpaceKeyboard.astro";
+import MainLayout from "../layouts/MainLayout.astro";
 import siteConfig from "../site.config";
+import { withBase } from "../utils/helpers";
 ---
 
 <MainLayout
@@ -17,15 +17,15 @@ import siteConfig from "../site.config";
     <Image
       class="cover-img"
       src={heroImage}
-      alt={"Astronaut in space"}
-      width={400}
-      height={300}
+      alt={"Puerto Peñasco real estate"}
+      width={600}
+      height={400}
     />
     <p>🧑‍🚀: Houston, we have a problem.</p>
     <p>
       We couldn't find that link. Verify the address or <a
         class="font-medium underline"
-        href={withBase("/")}>Go Back Home</a
+        href={withBase("")}>Go Back Home</a
       >
     </p>
     <SpaceKeyboard />
