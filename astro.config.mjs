@@ -23,9 +23,14 @@ export default defineConfig({
 
   vite: {
     plugins: [tailwindcss()],
-    preview: {
+    server: {
+      port: 4321,
+      host: true,
       allowedHosts: ["gnevarezrealtor.dyndns.org"],
     },
+    port: 4321,
+    host: true,
+    allowedHosts: ["gnevarezrealtor.dyndns.org"],
   },
 });
 
