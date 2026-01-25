@@ -73,7 +73,7 @@ const siteConfig: SiteConfig = {
   description:
     "Agente inmobiliario bilingüe especializado en venta, compra, rentas y gestión de propiedades en Puerto Peñasco, Sonora.",
   image: {
-    src: "/space-ahead-preview.jpeg",
+    src: "/gnevarezrealtor-preview.jpeg",
     alt: "G. Nevarez Realtor",
   },
   headerNavLinks: [

@@ -16,21 +16,14 @@ export default defineConfig({
     cache: true,
     progress: true,
   }), preact(), sitemap(), db()],
-
   image: {
     responsiveStyles: true,
   },
-
+  server: {
+    allowedHosts: ['gnevarezrealtor.dyndns.org'],
+  },
   vite: {
     plugins: [tailwindcss()],
-    server: {
-      port: 4321,
-      host: true,
-      allowedHosts: ["gnevarezrealtor.dyndns.org"],
-    },
-    port: 4321,
-    host: true,
-    allowedHosts: ["gnevarezrealtor.dyndns.org"],
   },
 });
 

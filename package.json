@@ -1,7 +1,7 @@
 {
-  "name": "space-ahead",
+  "name": "gnevarezrealtor",
   "type": "module",
-  "version": "0.11.4",
+  "version": "1.0.0",
   "scripts": {
     "dev": "astro dev --host 0.0.0.0",
     "start": "astro build && astro preview",
