@@ -1,0 +1,23 @@
+@import url("animate.css");
+@import "tailwindcss";
+
+/* Base fonts */
+
+@font-face {
+  font-family: 'Lato';
+  src: url('/fonts/Lato-Regular.ttf') format('ttf');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Base elements with Tailwind utilities */
+html, body {
+  @apply text-neutral-900;
+  background-color: #e5e5e5;
+  font-family: "Kanit", "Lato", system-ui, -apple-system, sans-serif;
+}
+
+a:not(.button-link) {
+  @apply transition-colors;
+}

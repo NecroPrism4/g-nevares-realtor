@@ -1,0 +1,14 @@
+---
+import ServicesBlock from "../components/Services.astro";
+import MainLayout from "../layouts/MainLayout.astro";
+import siteConfig from "../site.config";
+---
+
+<MainLayout activePage="services" pageTitle={siteConfig.title + " | Services"} showSubscribeForm={false}>
+  <div class="px-4 my-8">
+    <h1 class="sigmar-ff">Services</h1>
+    <p class="text-slate-600 mb-6">Buying, selling, and leasing support designed for busy professionals.</p>
+    <ServicesBlock />
+  </div>
+</MainLayout>
+

@@ -1,0 +1,34 @@
+---
+import { getCollection } from "astro:content";
+import ListingFilters from "../../components/ListingFilters.jsx";
+import MainLayout from "../../layouts/MainLayout.astro";
+import siteConfig from "../../site.config";
+
+const entries = await getCollection("listings");
+const items: any[] = entries.map((e) => {
+  const idSlug = e.id.split("/").pop()?.replace(/\.md$/, "") ?? "";
+  return {
+  slug: e.data.slug ?? idSlug,
+  title: e.data.title,
+  description: e.data.description,
+  price: e.data.price,
+  currency: e.data.currency ?? "USD",
+  location: e.data.location,
+  city: e.data.city,
+  type: e.data.type,
+  bedrooms: e.data.bedrooms ?? 0,
+  bathrooms: e.data.bathrooms ?? 0,
+  areaSqFt: e.data.areaSqFt,
+  images: e.data.images ?? [],
+  featured: e.data.featured ?? false,
+}});
+---
+
+<MainLayout activePage="listings" pageTitle={`${siteConfig.title} | Listings`} showSubscribeForm={false}>
+  <section class="px-4 my-8">
+    <h1 class="sigmar-ff">Listings</h1>
+    <p class="text-slate-600 mt-2">Browse available properties in Rocky Point and surrounding areas.</p>
+    <ListingFilters items={items as any} client:load />
+  </section>
+</MainLayout>
+

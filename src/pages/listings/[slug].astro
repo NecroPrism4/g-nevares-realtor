@@ -1,0 +1,112 @@
+---
+import type { APIContext } from "astro";
+import { getCollection } from "astro:content";
+import ContactForm from "../../components/ContactForm.astro";
+import MapEmbed from "../../components/MapEmbed.astro";
+import PropertyGallery from "../../components/PropertyGallery.astro";
+import MainLayout from "../../layouts/MainLayout.astro";
+import siteConfig from "../../site.config";
+
+export async function getStaticPaths() {
+  const entries = await getCollection("listings");
+  return entries.map((entry) => {
+    const idSlug = entry.id.split("/").pop()?.replace(/\.md$/, "") ?? "";
+    return ({
+    params: { slug: entry.data.slug ?? idSlug },
+    props: { entry },
+  })});
+}
+
+const { props } = Astro as unknown as APIContext;
+const entry = (props as any).entry;
+const data = entry.data;
+const pageTitle = `${data.title} | ${siteConfig.title}`;
+
+const priceFormatted = new Intl.NumberFormat(undefined, {
+  style: "currency",
+  currency: data.currency ?? "USD",
+}).format(data.price);
+
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "RealEstateListing",
+  name: data.title,
+  description: data.description,
+  url: new URL(`/listings/${data.slug ?? entry.slug}`, Astro.site).toString(),
+  address: {
+    "@type": "PostalAddress",
+    streetAddress: data.address,
+    addressLocality: data.city,
+    addressRegion: data.state,
+    postalCode: data.postalCode,
+    addressCountry: data.country,
+  },
+  geo: data.coords
+    ? {
+        "@type": "GeoCoordinates",
+        latitude: data.coords.lat,
+        longitude: data.coords.lng,
+      }
+    : undefined,
+  offers: {
+    "@type": "Offer",
+    price: data.price,
+    priceCurrency: data.currency ?? "USD",
+    availability: "https://schema.org/InStock",
+  },
+  additionalProperty: [
+    { "@type": "PropertyValue", name: "Bedrooms", value: data.bedrooms },
+    { "@type": "PropertyValue", name: "Bathrooms", value: data.bathrooms },
+    { "@type": "PropertyValue", name: "AreaSqFt", value: data.areaSqFt },
+    { "@type": "PropertyValue", name: "Type", value: data.type },
+  ].filter(Boolean),
+  image: data.images,
+};
+---
+
+<MainLayout activePage="listings" pageTitle={pageTitle} showSubscribeForm={false}>
+  <head>
+    <meta name="description" content={data.description} />
+    <meta property="og:title" content={pageTitle} />
+    <meta property="og:description" content={data.description} />
+    {data.images?.[0] && <meta property="og:image" content={data.images[0]} />}
+    <script type="application/ld+json">{JSON.stringify(jsonLd)}</script>
+  </head>
+
+  <section class="px-4 my-8">
+    <a href="/listings" class="text-smoking-600 hover:underline">← Back to listings</a>
+    <h1 class="sigmar-ff mt-2">{data.title}</h1>
+    <p class="text-smoking-600 text-xl font-semibold">{priceFormatted}</p>
+    <p class="text-slate-600">{data.location}</p>
+
+    {data.images?.length ? <div class="mt-6"><PropertyGallery images={data.images} title={data.title} /></div> : null}
+
+    <div class="grid grid-cols-1 sm:grid-cols-3 gap-6 mt-8">
+      <div class="sm:col-span-2">
+        <h2 class="text-xl font-semibold mb-3">Overview</h2>
+        <p class="text-slate-700">{data.description}</p>
+
+        <h3 class="text-lg font-semibold mt-6 mb-2">Details</h3>
+        <ul class="grid grid-cols-2 gap-y-2 text-sm text-slate-700">
+          <li><strong>Type:</strong> {data.type}</li>
+          <li><strong>Bedrooms:</strong> {data.bedrooms}</li>
+          <li><strong>Bathrooms:</strong> {data.bathrooms}</li>
+          {data.areaSqFt && <li><strong>Area:</strong> {data.areaSqFt} sqft</li>}
+          {data.yearBuilt && <li><strong>Year Built:</strong> {data.yearBuilt}</li>}
+          {data.parking && <li><strong>Parking:</strong> {data.parking}</li>}
+          {data.hoaFees && <li><strong>HOA:</strong> ${data.hoaFees}/mo</li>}
+          <li><strong>Status:</strong> {data.status}</li>
+        </ul>
+
+        {data.coords && <div class="mt-6"><MapEmbed lat={data.coords.lat} lng={data.coords.lng} title={`Map - ${data.title}`} /></div>}
+      </div>
+
+      <div class="sm:col-span-1">
+        <div class="sticky top-6">
+          <ContactForm heading="Contact Agent" subheading="Request more details or schedule a showing." />
+        </div>
+      </div>
+    </div>
+  </section>
+</MainLayout>
+

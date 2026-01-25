@@ -1,0 +1,55 @@
+---
+import { Image } from "astro:assets";
+import sandyBeach from "../assets/images/sandy-beach.jpg";
+import lasConchas from "../assets/images/las-conchas.jpg";
+import condo from "../assets/images/condo.jpg";
+import lots from "../assets/images/lots.jpg";
+---
+
+<section id="area" class="mx-auto my-20 w-[min(1200px,100%-2rem)]">
+  <div class="flex flex-wrap items-end justify-between gap-6">
+    <div class="space-y-4">
+      <p class="text-[0.65rem] uppercase tracking-[0.35em] text-neutral-500">Zona de especialidad</p>
+      <h2 class="text-2xl font-semibold uppercase tracking-[0.08em] text-neutral-900 sm:text-3xl">
+        Puerto Peñasco y zonas clave de Sonora
+      </h2>
+      <p class="max-w-2xl text-sm text-neutral-600 sm:text-base">
+        Especialista en bienes raíces con profundo conocimiento local y oportunidades frente al mar.
+      </p>
+    </div>
+  </div>
+
+  <div class="mt-10 grid gap-6 lg:grid-cols-[1.2fr_0.8fr]">
+    <div class="overflow-hidden rounded-2xl shadow-[0_24px_60px_rgba(15,23,42,0.14)]">
+      <Image src={sandyBeach} alt="Sandy Beach" width={960} height={640} class="h-full w-full object-cover" />
+    </div>
+    <div class="rounded-2xl border border-neutral-200 bg-white/95 p-6 shadow-[0_18px_45px_rgba(15,23,42,0.08)]">
+      <h3 class="text-xs uppercase tracking-[0.3em] text-neutral-500">Colonias destacadas</h3>
+      <p class="mt-4 text-sm text-neutral-600">
+        Las Conchas, Sandy Beach, Cholla Bay, Mirador, Centro, Las Palmas y Playa Encanto.
+      </p>
+      <div class="mt-5 flex flex-wrap gap-2 text-xs">
+        <span class="rounded-full border border-neutral-200 bg-neutral-100 px-3 py-1">Las Conchas</span>
+        <span class="rounded-full border border-neutral-200 bg-neutral-100 px-3 py-1">Sandy Beach</span>
+        <span class="rounded-full border border-neutral-200 bg-neutral-100 px-3 py-1">Cholla Bay</span>
+        <span class="rounded-full border border-neutral-200 bg-neutral-100 px-3 py-1">Mirador</span>
+        <span class="rounded-full border border-neutral-200 bg-neutral-100 px-3 py-1">Centro</span>
+        <span class="rounded-full border border-neutral-200 bg-neutral-100 px-3 py-1">Playa Encanto</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="mt-6 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+    <div class="overflow-hidden rounded-2xl shadow-[0_18px_45px_rgba(15,23,42,0.12)]">
+      <Image src={lasConchas} alt="Las Conchas" width={960} height={640} class="h-64 w-full object-cover" />
+    </div>
+    <div class="overflow-hidden rounded-2xl shadow-[0_18px_45px_rgba(15,23,42,0.12)]">
+      <Image src={condo} alt="Condominio frente al mar" width={960} height={640} class="h-64 w-full object-cover" />
+    </div>
+    <div class="overflow-hidden rounded-2xl shadow-[0_18px_45px_rgba(15,23,42,0.12)]">
+      <Image src={lots} alt="Terrenos en desarrollo" width={960} height={640} class="h-64 w-full object-cover" />
+    </div>
+  </div>
+</section>
+
+
