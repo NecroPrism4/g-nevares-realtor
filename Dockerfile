@@ -18,6 +18,7 @@ FROM base AS runner
 ENV NODE_ENV=production
 COPY package.json pnpm-lock.yaml ./
 RUN pnpm install --prod --frozen-lockfile
+COPY ./astro.config.mjs ./astro.config.mjs
 COPY --from=build /app/dist ./dist
 EXPOSE 4321
 CMD ["pnpm", "run", "preview"]
