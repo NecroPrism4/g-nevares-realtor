@@ -20,4 +20,4 @@ COPY package.json pnpm-lock.yaml ./
 RUN pnpm install --prod --frozen-lockfile
 COPY --from=build /app/dist ./dist
 EXPOSE 4321
-CMD ["pnpm", "run", "preview", "--", "--host", "0.0.0.0", "--port", "4321"]
+CMD ["pnpm", "run", "preview"]
