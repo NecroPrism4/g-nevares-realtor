@@ -9,7 +9,7 @@ import db from "@astrojs/db";
 
 // https://astro.build/config
 export default defineConfig({
-  site: "https://gilbertonevarez.com",
+  site: "https://gnevarezrealtor.dyndns.org",
   base: "/",
   integrations: [swup({
     theme: ["overlay", { direction: "to-top" , color: "#151a22" }],
