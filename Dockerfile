@@ -19,5 +19,5 @@ ENV NODE_ENV=production
 COPY package.json pnpm-lock.yaml ./
 RUN pnpm install --prod --frozen-lockfile
 COPY --from=build /app/dist ./dist
-EXPOSE 4321
+# Default port for node server is 3000
 CMD ["node", "dist/server/entry.mjs"]
