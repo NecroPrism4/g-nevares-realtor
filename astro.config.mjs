@@ -23,6 +23,9 @@ export default defineConfig({
 
   vite: {
     plugins: [tailwindcss()],
+    preview: {
+      allowedHosts: ["gnevarezrealtor.dyndns.org"],
+    },
   },
 });
 
