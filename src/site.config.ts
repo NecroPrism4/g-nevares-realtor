@@ -137,11 +137,11 @@ const siteConfig: SiteConfig = {
     actions: [
       {
         text: "Explorar propiedades",
-        href: "#listings",
+        href: "https://oceano-sales.com",
       },
       {
         text: "Contáctame por WhatsApp",
-        href: "https://wa.me/526562234824",
+        href: "https://wa.me/16235659078?text=Hi Gilberto, I'm interested in buying a property in Puerto Peñasco, Sonora.",
       },
     ],
   },

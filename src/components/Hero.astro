@@ -51,6 +51,7 @@ import Button from "./Button.astro";
           {siteConfig.hero?.actions?.map((action, index) => (
             <Button
               href={action.href}
+              target="_blank"
               class={index === 0
                 ? "bg-white px-6 py-3 text-[0.7rem] uppercase tracking-[0.3em] text-neutral-900 hover:bg-white/90"
                 : "border border-white/70 bg-transparent px-6 py-3 text-[0.7rem] uppercase tracking-[0.3em] text-white hover:bg-white/10"}
