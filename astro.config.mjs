@@ -9,7 +9,7 @@ import db from "@astrojs/db";
 
 // https://astro.build/config
 export default defineConfig({
-  site: "https://gnevarezrealtor.dyndns.org",
+  site: "https://teamnevarezrealstate.com",
   base: "/",
   integrations: [swup({
     theme: ["overlay", { direction: "to-top" , color: "#151a22" }],
@@ -20,7 +20,7 @@ export default defineConfig({
     responsiveStyles: true,
   },
   server: {
-    allowedHosts: ['gnevarezrealtor.dyndns.org'],
+    allowedHosts: ['teamnevarezrealstate.com', 'www.teamnevarezrealstate.com'],
   },
   vite: {
     plugins: [tailwindcss()],
