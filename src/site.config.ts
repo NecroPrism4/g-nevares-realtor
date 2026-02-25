@@ -36,10 +36,6 @@ export type ContactInfo = {
     href?: string;
     email?: string;
   };
-  socialProfiles?: {
-    text?: string;
-    href?: string;
-  }[];
 };
 
 export type Subscribe = {
@@ -119,11 +115,11 @@ const siteConfig: SiteConfig = {
   socialLinks: [
     {
       text: "Instagram",
-      href: "https://www.instagram.com/",
+      href: "https://www.instagram.com/g_unit2345",
     },
     {
       text: "Facebook",
-      href: "https://www.facebook.com/",
+      href: "https://www.facebook.com/nevarezgil",
     },
   ],
   hero: {
@@ -157,16 +153,6 @@ const siteConfig: SiteConfig = {
       href: "mailto:Gilberto@goOceano.com",
       email: "Gilberto@goOceano.com",
     },
-    socialProfiles: [
-      {
-        text: "Instagram",
-        href: "https://www.instagram.com/",
-      },
-      {
-        text: "Facebook",
-        href: "https://www.facebook.com/",
-      },
-    ],
   },
   postsPerPage: 2,
   recentPostLimit: 0,

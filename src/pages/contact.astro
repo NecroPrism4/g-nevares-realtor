@@ -44,7 +44,7 @@ import siteConfig from "../site.config";
       <p class="font-bold text-left flex flex-col sm:flex-row">
         Social Profiles:
         {
-          siteConfig.contactInfo?.socialProfiles?.map((profile) => (
+          siteConfig.socialLinks?.map((profile) => (
             <a href={profile.href} class="font-light text-left ml-4">
               {profile.text}
             </a>
